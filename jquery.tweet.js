@@ -197,7 +197,7 @@
       o.tweet_raw_text = o.retweet ? ('RT @'+o.retweeted_screen_name+' '+item.retweeted_status.text) : item.text; // avoid '...' in long retweets
       o.tweet_text = $([linkURLs(o.tweet_raw_text, o.entities)]).linkUser().linkHash()[0];
       o.tweet_text_fancy = $([o.tweet_text]).makeHeart()[0];
-      o.tweet_text_fancy.replace(/<a/g, '<a target="_blank" ');
+      o.tweet_text_fancy = o.tweet_text_fancy.replace(/<a/g, '<a target="_blank" ');
 
       // Default spans, and pre-formatted blocks for common layouts
       o.user = t('<a class="tweet_user" href="{tweet_url}" target="_blank">{screen_name}</a>', o);
