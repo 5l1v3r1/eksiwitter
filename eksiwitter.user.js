@@ -55,16 +55,18 @@ function main() {
               }).bind("loaded", function() {
                 var ul = $(this).find(".tweet_list");
                 ul.css("padding-left", 0);
-                var ticker = function() {
-                  setTimeout(function() {
-                    var firstItem = ul.find("li:first");
-                    firstItem.animate( {marginTop: -1*firstItem.height()}, 400, function() {
-                      $(this).detach().appendTo(ul).removeAttr('style');
-                    });
-                    ticker();
-                  }, 5000);
-                };
-                ticker();
+                if(ul.children().size() > 1) {
+                  var ticker = function() {
+                    setTimeout(function() {
+                      var firstItem = ul.find("li:first");
+                      firstItem.animate( {marginTop: -1*firstItem.height()}, 400, function() {
+                        $(this).detach().appendTo(ul).removeAttr('style');
+                      });
+                      ticker();
+                    }, 5000);
+                  };
+                  ticker();
+                }
               });
           });
       };
