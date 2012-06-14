@@ -1,7 +1,7 @@
 // ==UserScript==
-// @name           Sozluk_Twitter
+// @name           Eksiwitter
 // @namespace      http://iyiuykular.net/apps
-// @description    Eksisozluk twitter widget
+// @description    Eksisozluk'te Twitter gostergeci
 // @include        http://*/
 // @include        http://*/*
 // @version        0.8
