@@ -59,7 +59,7 @@ function main() {
                   var ticker = function() {
                     setTimeout(function() {
                       var firstItem = ul.find("li:first");
-                      firstItem.animate( {marginTop: -1*firstItem.height()}, 400, function() {
+                      firstItem.animate( {marginTop: -1*firstItem.height()}, 500, function() {
                         $(this).detach().appendTo(ul).removeAttr('style');
                       });
                       ticker();
@@ -70,8 +70,7 @@ function main() {
               });
           });
       };
-      //script.src = 'http://tweet.seaofclouds.com/jquery.tweet.js';
-      script.src = 'https://raw.github.com/samet/eksitwitter/master/jquery.tweet.js';
+      script.src = 'https://raw.github.com/samet/eksiwitter/master/jquery.tweet.js';
       d.getElementsByTagName('head')[0].appendChild(script);
   }(window.document));
 };
