@@ -54,11 +54,7 @@ function main() {
                   filter: function(t){ return ! /^@\w+/.test(t.tweet_raw_text); },
                   template: "{avatar}{user} {join}{text}"
               }).bind("loaded", function() {
-                console.log("deniyorum");
-                console.log(document.body.scrollHeight);
-                console.log(document.body.clientHeight);
                 if ((document.height - (window.pageYOffset + window.innerHeight)) > 0) {
-                  console.log('denedim');
                   $('body').css('overflow-y', 'scroll');
                 }
                 var ul = $(this).find(".tweet_list");
@@ -79,7 +75,7 @@ function main() {
               });
           });
       };
-      script.src = 'https://raw.github.com/samet/eksiwitter/master/jquery.tweet.js';
+      script.src = 'https://raw.github.com/samet/eksiwitter/master/jquery.tweet.min.js';
       d.getElementsByTagName('head')[0].appendChild(script);
   }(window.document));
 };
