@@ -221,7 +221,7 @@
         var list = $('<ul class="tweet_list">');
         var tweets = $.map(data.results || data, extract_template_data);
         tweets = $.grep(tweets, s.filter).sort(s.comparator).slice(0, s.count);
-        list.append($.map(tweets, function(o) { return "<li style='{border-bottom-style: solid;border-bottom-width:1px; border-bottom-color: #ff0033;width:110px !important;}'>" + t(s.template, o) + "</li>"; }).join('')).
+        list.append($.map(tweets, function(o) { return "<li style='{border-bottom-style: solid;border-bottom-width:1px; border-bottom-color: #ff0033;padding-left:}'>" + t(s.template, o) + "</li>"; }).join('')).
           children('li:first').addClass('tweet_first').end().
           children('li:odd').addClass('tweet_even').end().
           children('li:even').addClass('tweet_odd');
