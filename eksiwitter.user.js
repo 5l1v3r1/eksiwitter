@@ -26,9 +26,10 @@ function main() {
       script = d.createElement('script');
       script.type = 'text/javascript';
       script.async = true;
+
       script.onload = function(){
           jQuery(function($){
-              $("<style type='text/css'> .tweet_list{ font-size:12px;} .tweet_list li{ margin-bottom:10px} #ticker ul.tweet_list {height:4em;overflow-y:hidden;}#ticker .tweet_list li {height: 4em;}</style>").appendTo("head");
+              $("<style type='text/css'> .tweet_list{ font-size:12px; list-style-type:none; } .tweet_list li{ margin-bottom:10px;margin-left:0px;width:110px;} #ticker ul.tweet_list {height:4em;overflow-y:hidden;padding-left:0px;}#ticker .tweet_list li {margin-bottom:10px;height: 4em;width:110px;}</style>").appendTo("head");
 
               var turkish = {"ç":"c", "ş":"s", "ğ":"g", "ü":"u", "ö":"o", "ı":"i", "Ü":"u", "Ğ":"g", "Ç":"c", "Ş":"s", "Ö":"o", "İ":"i"};
 
@@ -38,24 +39,32 @@ function main() {
               $.each(turkish, function(key, value) {
                   title = title.replace(/key/g, value);
                   });
-              //title = title.replace(/ /g, "");
 
               var d = window.document.createElement("div");
               d.setAttribute("id", "twitterWidget");
-              d.setAttribute("style", "overflow:hidden");
-              d.setAttribute("class", "eol");
+              d.setAttribute("style", "overflow-y:hidden");
+              //d.setAttribute("class", "eol");
+              d.setAttribute("style", "line-height:14pt;width:110px;word-wrap:break-word;overflow-y:hidden;");
               window.document.getElementsByClassName("rightcol")[0].appendChild(d)
               $("#twitterWidget").tweet({
                   avatar_size: 12,
                   count: 4,
                   query: title + " lang:tr",
-                  loading_text: "hayirlisiyla geliyor tweetler...",
+                  loading_text: "tweetler yolda...",
                   filter: function(t){ return ! /^@\w+/.test(t.tweet_raw_text); },
                   template: "{avatar}{user} {join}{text}"
               }).bind("loaded", function() {
+                console.log("deniyorum");
+                console.log(document.body.scrollHeight);
+                console.log(document.body.clientHeight);
+                if ((document.height - (window.pageYOffset + window.innerHeight)) > 0) {
+                  console.log('denedim');
+                  $('body').css('overflow-y', 'scroll');
+                }
                 var ul = $(this).find(".tweet_list");
                 ul.css("padding-left", 0);
                 if(ul.children().size() > 1) {
+                  var myHeight = $("#twitterWidget").height();
                   var ticker = function() {
                     setTimeout(function() {
                       var firstItem = ul.find("li:first");
