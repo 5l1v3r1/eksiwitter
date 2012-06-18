@@ -54,7 +54,7 @@ function main() {
                   filter: function(t){ return ! /^@\w+/.test(t.tweet_raw_text); },
                   template: "{avatar}{user} {join}{text}"
               }).bind("loaded", function() {
-                if ((document.height - (window.pageYOffset + window.innerHeight)) > 0) {
+                if ($('body').outerHeight() > $(window).height()) {
                   $('body').css('overflow-y', 'scroll');
                 }
                 var ul = $(this).find(".tweet_list");
@@ -64,7 +64,7 @@ function main() {
                   var ticker = function() {
                     setTimeout(function() {
                       var firstItem = ul.find("li:first");
-                      firstItem.animate( {marginTop: -1*firstItem.height()}, 500, function() {
+                      firstItem.animate( {marginTop: -1*firstItem.height()}, 1200, function() {
                         $(this).detach().appendTo(ul).removeAttr('style');
                       });
                       ticker();
