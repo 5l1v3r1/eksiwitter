@@ -2,10 +2,11 @@
 // @name           Eksiwitter
 // @namespace      http://iyiuykular.net/apps
 // @description    Eksisozluk'te Twitter gostergeci
-// @include        http://*/
-// @include        http://*/*
-// @version        0.8
+// @include        http://www.eksisozluk.com/*
+// @match          http://www.eksisozluk.com/*
+// @version        0.8.1
 // ==/UserScript==
+
 
 function addJQuery(b){var a=window.document.createElement("script");a.setAttribute("src","http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js");a.addEventListener("load",function(){var c=window.document.createElement("script");c.textContent="("+b.toString()+")();";window.document.body.appendChild(c)},!1);window.document.body.appendChild(a)}
 function main(){(function(b,a){a=b.createElement("script");a.type="text/javascript";a.async=!0;a.onload=function(){jQuery(function(c){c("<style type='text/css'> .tweet_list{ font-size:12px; list-style-type:none; } .tweet_list li{ margin-bottom:10px;margin-left:0px;width:110px;} #ticker ul.tweet_list {height:4em;overflow-y:hidden;padding-left:0px;}#ticker .tweet_list li {margin-bottom:10px;height: 4em;width:110px;}</style>").appendTo("head");var a=window.window.document.title.split(" - ")[0];c.each({"\u00e7":"c",

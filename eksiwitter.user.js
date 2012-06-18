@@ -2,9 +2,9 @@
 // @name           Eksiwitter
 // @namespace      http://iyiuykular.net/apps
 // @description    Eksisozluk'te Twitter gostergeci
-// @include        http://*/
-// @include        http://*/*
-// @version        0.8
+// @include        http://www.eksisozluk.com/*
+// @match          http://www.eksisozluk.com/*
+// @version        0.8.1
 // ==/UserScript==
 
 
